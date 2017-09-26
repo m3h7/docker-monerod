@@ -1,13 +1,14 @@
 FROM centos:7
-ENV MONERO_RELEASE v0.10.3.1
+LABEL MAINTANER mahiso <maik@mahiso.de>
+
+ARG MONERO_RELEASE
+ENV MONERO_RELEASE $MONERO_RELEASE
 
 RUN yum -y update &&\
     yum -y install bzip2 &&\
-    yum clean all
-    
-RUN useradd monerod
+    yum clean all &&\
+    rm -rf /var/cache/yum
 
-USER monerod
 ENV HOME /home/monerod
 WORKDIR /home/monerod
 
