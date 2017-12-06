@@ -12,7 +12,7 @@ The blockchain is loaded from the `/bitmonero` volume. This volume should contai
 ```sh
 # Clone repository
 git clone https://github.com/mahiso/docker-monerod
-cd docker-monero
+cd docker-monerod
 # Build image:
 make build
 # Create blockchain volume and copy configuration:
