@@ -1,7 +1,7 @@
 SOURCE=.
 REGISTRY=spurv:5000
 IMAGENAME=mahiso/monerod
-MONERO_RELEASE=v0.11.0.0
+MONERO_RELEASE=v0.11.1.0
 
 .PHONY: all
 all: usage
