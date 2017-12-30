@@ -1,6 +1,5 @@
 SOURCE=.
-REGISTRY=spurv:5000
-IMAGENAME=mahiso/monerod
+IMAGENAME=m3h7/monerod
 MONERO_RELEASE=v0.11.1.0
 
 .PHONY: all
@@ -9,8 +8,8 @@ all: usage
 usage:
 	@echo "Monerod Docker Build and Push"
 	@echo "Usage:"
-	@echo "  make build: Build the Docker image"
-	@echo "  make push: Push image to registry"
+	@echo "  make build				- Build the Docker image"
+	@echo "  make REGISTRY=\"myregistry:5000\" push	- Push image to registry"
 	@echo ""
 	@echo "Change registry and image name in Makefile before build and push."
 
