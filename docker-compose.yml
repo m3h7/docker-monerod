@@ -1,0 +1,36 @@
+version: '3.4'
+services:
+  monerod:
+    image: ghcr.io/m3h7/monerod:v0.17.2.3-01
+    build:
+      context: ./monerod
+      args:
+        - MONERO_RELEASE=v0.17.2.3
+    ports:
+      - 18080:18080/tcp
+      - 18081:18081/tcp
+    volumes:
+      - bitmonero:/home/monero/.bitmonero:rw
+      - /dev/null:/home/monero/.bitmonero/bitmonero.log:rw
+      - /dev/hugepages:/dev/hugepages:rw
+    restart: unless-stopped
+    command: >-
+      --zmq-pub tcp://0.0.0.0:18083
+      --disable-dns-checkpoints
+      --enable-dns-blocklist
+      --non-interactive
+      --p2p-bind-ip=0.0.0.0
+      --p2p-bind-port=18080
+      --rpc-bind-ip=0.0.0.0
+      --rpc-bind-port=18081
+      --confirm-external-bind
+      --out-peers=64
+      --in-peers=32
+      --limit-rate-up=1048576
+      --limit-rate-down=1048576
+      --prune-blockchain
+      --sync-pruned-blocks
+
+volumes:
+  bitmonero:
+    name: bitmonero
