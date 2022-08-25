@@ -1,11 +1,11 @@
 version: '3.4'
 services:
   monerod:
-    image: ghcr.io/m3h7/monerod:v0.17.3.0-01
+    image: ghcr.io/m3h7/monerod:v0.18.1.0-01
     build:
       context: ./monerod
       args:
-        - MONERO_RELEASE=v0.17.3.0
+        - MONERO_RELEASE=v0.18.1.0
     ports:
       - 18080:18080/tcp
       - 18081:18081/tcp
